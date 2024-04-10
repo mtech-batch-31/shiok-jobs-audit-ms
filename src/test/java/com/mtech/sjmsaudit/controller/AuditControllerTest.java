@@ -29,7 +29,7 @@ public class AuditControllerTest {
         var auditTrail = new AuditTrail();
         var userId = UUID.randomUUID().toString();
         var accessTime = new Date();
-        var event = "Sign-In";
+        var event = "Sign-in";
         var message = "user successfully sign-in";
 
         auditTrail.setAccountUuid(userId);
