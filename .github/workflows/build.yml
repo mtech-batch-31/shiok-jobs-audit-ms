@@ -33,6 +33,9 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
 
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
       # Run all unit tests
       - name: Run unit tests
         run: ./gradlew test
