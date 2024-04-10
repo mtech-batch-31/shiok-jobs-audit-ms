@@ -39,3 +39,27 @@ jobs:
       # Run all unit tests
       - name: Run unit tests
         run: ./gradlew test
+
+  generate_jar:
+    needs: code_scan
+    name: Generate Jar File
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check_and_build
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: 'gradle'
+      - run: ./gradlew bootJar
+
+      - name: Upload Project Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: spring-boot-artifact
+          path: |
+            build/libs/shiok_jobs_audit_ms.jar
+            build/reports
