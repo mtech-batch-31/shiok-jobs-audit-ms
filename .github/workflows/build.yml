@@ -131,7 +131,7 @@ jobs:
           path: |
             build/sonar/report-task.txt
 
-    build_and_push_image:
+  build_and_push_image:
       needs: generate_jar
       name: Push Docker Image to ECR
       runs-on: ubuntu-latest
