@@ -41,6 +41,11 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+bootJar {
+	archiveFileName = "shiok_jobs_audit_ms.jar"
+	archiveClassifier.set(null)
+}
+
 task installLocalGitHook(type: Copy){
 	from new File(rootProject.rootDir, 'scripts/pre-commit')
 	into { new File(rootProject.rootDir, '.git/hooks')}
