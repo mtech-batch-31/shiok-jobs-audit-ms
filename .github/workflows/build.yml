@@ -9,6 +9,12 @@ on:
 
 permissions: write-all
 
+env:
+  AWS_REGION: ap-southeast-1
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  IMAGE_NAME: ${{ secrets.ECR_REPOSITORY_URL }}:${{ github.sha }}
+
 jobs:
   tests:
     name: Unit tests
