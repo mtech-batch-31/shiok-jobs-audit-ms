@@ -3,6 +3,7 @@ package com.mtech.sjmsaudit.controller;
 import com.mtech.sjmsaudit.entity.AuditTrail;
 import com.mtech.sjmsaudit.service.AuditTrailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +18,8 @@ public class AuditController {
     private AuditTrailServiceImpl auditTrailService;
 
     @PostMapping
-    public ResponseEntity<String> insertEvent(@RequestBody AuditTrail auditTrail){
+    public ResponseEntity<AuditTrail> insertEvent(@RequestBody AuditTrail auditTrail){
         var response = auditTrailService.insertAuditTrail(auditTrail);
-        return ResponseEntity.ok("created");
+        return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
 }

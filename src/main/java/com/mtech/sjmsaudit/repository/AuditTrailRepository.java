@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AuditTrailRepository extends CrudRepository<AuditTrail, Long> {
 
-    <S extends AuditTrail> S save(S entity);
+    <S extends AuditTrail> S saveAndFlush(S entity);
 }

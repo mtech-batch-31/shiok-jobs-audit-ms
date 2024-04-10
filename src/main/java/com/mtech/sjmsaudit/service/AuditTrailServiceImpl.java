@@ -14,7 +14,6 @@ public class AuditTrailServiceImpl implements AuditTrailService {
     @Override
     public AuditTrail insertAuditTrail(AuditTrail auditTrail) {
 
-        auditTrailRepository.save(auditTrail);
-        return null;
+        return auditTrailRepository.saveAndFlush(auditTrail);
     }
 }

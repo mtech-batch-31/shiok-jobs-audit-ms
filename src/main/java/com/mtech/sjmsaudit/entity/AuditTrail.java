@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class AuditTrail {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String accountUuid;
     private Date accessTime;
